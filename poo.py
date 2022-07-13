@@ -1,4 +1,4 @@
-class coche():
+class coche:
     def __init__(self):
         self.__ChasisL = 220
         self.__ChasisA = 120
@@ -12,7 +12,7 @@ class coche():
         self.enMarcha = False
 
     def getEstado(self):
-        if (self.enMarcha):
+        if self.enMarcha:
             return "Coche en marcha"
         else:
             return "Coche estacionado"
@@ -28,7 +28,9 @@ print(miCoche.getEstado())
 miCoche2 = coche()
 
 print("POO - Herencia")
-class Vehiculo():
+
+
+class Vehiculo:
     def __init__(self, marca, modelo):
         self.marca = marca
         self.modelo = modelo
@@ -47,15 +49,42 @@ class Vehiculo():
 
     def getEstado(self):
         print("Marca: ", self.marca, "Modelo: ", self.modelo, "Arracar estado:", self.arranca, "Frena estado",
-                  self.frena)
+              self.frena)
+
 
 class Moto(Vehiculo):
     hCaballito = "Manejar"
+
     def caballito(self):
         self.hCaballito = "Estoy haciendo caballito ayaju"
+
     def getEstado(self):
         print("Marca: ", self.marca, "Modelo: ", self.modelo, "Arracar estado:", self.arranca, "Frena estado",
-                  self.frena,"Ahorita estoy haciendo " , self.hCaballito)
-Motomami = Moto("Motomami sordo","Nose pero es motomami chamo")
+              self.frena, "Ahorita estoy haciendo ", self.hCaballito)
+
+
+Motomami = Moto("Motomami sordo", "Nose pero es motomami chamo")
 Motomami.caballito()
 Motomami.getEstado()
+
+
+class Empleado:
+    # Constructor de la clase
+    def __init__(self, nombre, iden):
+        self.nombre = nombre
+        self.iden = iden
+
+
+class Valencia:
+    domicilio = "Valencia"
+
+
+class RecHumanos(Empleado, Valencia):
+    def saludo(self):
+        print("Hola, mi nombre es " + self.nombre + " y mi ID es " + self.iden + ".")
+        print("Trabajo en Recursos Humanos.")
+        print("Vivo en " + self.domicilio + ".")
+
+
+karen = RecHumanos("Karen", "19219")
+karen.saludo()
